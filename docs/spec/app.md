@@ -16,12 +16,17 @@ requests and reminders.
 ## Connection
 
 - The phone must be on the owner's **Tailscale** tailnet. The app talks only to
-  TITAN nodes by their tailnet names. There is no public endpoint.
-- **Pairing**: on first start the user enters the node address, username and
+  TITAN nodes over the tailnet. There is no public endpoint.
+- The app uses the **cluster address** (for example
+  `titan.example-tailnet.ts.net`), a Tailscale Service that every ready node
+  advertises. Tailscale connects the phone to the nearest available node, so
+  failover needs no app logic
+  ([titan ADR 0013](https://github.com/vlukyanets/titan/blob/master/docs/adr/0013-one-cluster-address.md)).
+- **Pairing**: on first start the user enters the cluster address, username and
   password. The backend issues a device token, which is stored with the Android
-  Keystore. The password is not stored.
-- The user can add more node addresses. If the current node is unreachable the
-  app tries the next one.
+  Keystore. The password is not stored. The token works on every node.
+- As an advanced fallback, the user can add individual node addresses. If the
+  cluster address is unreachable the app tries them in order.
 
 ## Screens (v1)
 
