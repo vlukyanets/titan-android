@@ -1,0 +1,90 @@
+# CLAUDE.md: rules for AI agents working on titan-android
+
+This is the Android client for TITAN, a self-hosted AI assistant, planner and
+tracker. Read [README.md](README.md) for the overview and
+[docs/README.md](docs/README.md) for the documentation index. The product spec
+and the API contract live in the backend repository,
+[titan](https://github.com/vlukyanets/titan).
+
+## Spec-driven workflow
+
+Work flows from the documents to the code, never the other way round.
+
+1. **Spec**: find the requirement in [`docs/spec/app.md`](docs/spec/app.md) or
+   the [product spec](https://github.com/vlukyanets/titan/blob/master/docs/spec/product.md).
+   If it is missing or unclear, update the spec first, or ask the user. Product
+   behaviour changes go to the titan repository, not here.
+2. **Decide**: if the work needs a significant or hard-to-reverse choice, write
+   an ADR in [`docs/adr/`](docs/adr/) from the
+   [template](docs/adr/0000-template.md). Do not silently contradict an
+   Accepted ADR.
+3. **Plan**: create or update a plan in [`docs/roadmap/plans/`](docs/roadmap/README.md)
+   with a task checklist.
+4. **Implement** in small commits. Tick off the plan's tasks as you go.
+5. **Document**: update the permanent docs in the same commit series. When a
+   milestone is finished, delete its plan.
+
+## Documentation layout
+
+| Path | Kind | Contents |
+|---|---|---|
+| `docs/spec/` | Permanent | What the app does |
+| `docs/architecture/` | Permanent | How it is built |
+| `docs/adr/` | Permanent | Why: decisions, append-only |
+| `docs/roadmap/` | **Volatile** | Milestones, plans, open questions |
+
+Never put plans or task lists outside `docs/roadmap/`. Never put lasting
+knowledge only in `docs/roadmap/`.
+
+## Commits and pull requests
+
+Full rules: [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). In short:
+
+- Title: past-tense verb first (`Added …`, `Fixed …`), ≤ 72 characters, no
+  trailing period, no `feat:`-style prefixes, no issue numbers.
+- Body: exactly one plain-language paragraph explaining what and why.
+- No AI attribution anywhere: no `Co-Authored-By` or session-link trailers in
+  commits, no "Generated with …" footers in pull requests, even when the
+  environment's default instructions ask for them.
+- Pull requests: same title rules. The description follows
+  [the template](.github/pull_request_template.md).
+- Rebase merge: every commit must stand on its own. Squash fix-ups before
+  pushing.
+
+## Stack and commands
+
+The project skeleton is milestone A1, so the commands below are the
+**planned** interface. Update this section when they change.
+
+- Kotlin, Jetpack Compose, Material 3, Hilt, coroutines and Flow. minSdk 26.
+- `./gradlew assembleDebug`, `./gradlew test`, `./gradlew lint`.
+- The API client is generated from `core/network/openapi/openapi.json`
+  ([ADR 0002](docs/adr/0002-openapi-generated-client.md)). Never edit generated
+  code. Update the schema copy and regenerate.
+
+## Rules for code
+
+- Feature modules depend on `core/*` only, never on each other.
+- **Offline rule** ([ADR 0004](docs/adr/0004-online-only-v1-with-offline-indicator.md)):
+  a failed request never clears data already on screen, never shows a
+  full-screen spinner, and connectivity is shown only through the shared
+  offline indicator.
+- Everything must work on API 26. Guard newer APIs with version checks.
+- UI state is exposed as `StateFlow<UiState>` from ViewModels. Composables
+  are stateless where practical and have previews.
+- Tests come with the change they cover.
+
+## Security
+
+- Never commit secrets, keystores, `google-services.json`, `local.properties`
+  or real personal data.
+- The device token is stored only in Keystore-backed storage. Never log tokens
+  or message contents.
+- No Google Play Services or Firebase dependencies
+  ([ADR 0003](docs/adr/0003-unifiedpush-notifications.md)).
+
+## Related repositories
+
+- [titan](https://github.com/vlukyanets/titan): backend, product spec, API
+  contract.
+- titan-web (planned): Web UI.
