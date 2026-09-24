@@ -21,7 +21,7 @@ Status: **Draft**. This is the target architecture for the v1 app.
 
 ```text
 app/                 Application, navigation, DI setup
-core/network/        generated API client, auth interceptor, SSE, node failover
+core/network/        generated API client, auth interceptor, SSE, fallback node addresses
 core/connectivity/   ConnectivityState: online / offline / reconnecting
 core/ui/             theme, shared components, offline indicator
 feature/today/
