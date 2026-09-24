@@ -7,7 +7,8 @@ Last updated: 2026-09-24.
 - [ ] Gradle Kotlin DSL project, version catalog, the modules from the
       [architecture overview](../architecture/overview.md).
 - [ ] Material 3 theme, navigation scaffold, offline indicator component.
-- [ ] ktlint or detekt, unit tests, GitHub Actions CI (build, lint, test).
+- [ ] ktlint or detekt, unit tests, GitHub Actions CI named `CI TITAN Android`
+      (build, lint, test).
 - [ ] OpenAPI Generator wired to a placeholder schema.
 
 Exit: an empty app with navigation builds in CI and runs on API 26.
