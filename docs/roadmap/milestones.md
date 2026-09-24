@@ -17,11 +17,11 @@ Exit: an empty app with navigation builds in CI and runs on API 26.
 Depends on backend M1 (accounts, device tokens, chat API).
 
 - [ ] Pairing flow and Keystore-backed token storage.
-- [ ] `ConnectivityState` and node failover.
+- [ ] `ConnectivityState`, the cluster address and the fallback node addresses.
 - [ ] Chat screen with SSE streaming and inline approvals.
 
-Exit: pair with a node, chat with streaming, approve an action, and lose and
-regain the connection without losing screen content.
+Exit: pair with the cluster address, chat with streaming, approve an action,
+and lose and regain the connection without losing screen content.
 
 ## A3: Domain screens
 
@@ -41,7 +41,7 @@ screens.
 - [ ] UnifiedPush registration and the ntfy setup guide.
 - [ ] Notification actions (Snooze, Done, Approve, Reject).
 - [ ] Notification history screen.
-- [ ] Settings: devices, per-domain autonomy overrides, nodes.
+- [ ] Settings: devices, per-domain autonomy overrides, fallback node addresses.
 
 Exit: a reminder and an approval can be handled from the notification shade.
 
