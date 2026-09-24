@@ -68,6 +68,8 @@ The project skeleton is milestone A1, so the commands below are the
 
 - Kotlin, Jetpack Compose, Material 3, Hilt, coroutines and Flow. minSdk 26.
 - `./gradlew assembleDebug`, `./gradlew test`, `./gradlew lint`.
+- The GitHub Actions workflow is named `CI TITAN Android` (the backend's is
+  `CI TITAN`).
 - The API client is generated from `core/network/openapi/openapi.json`
   ([ADR 0002](docs/adr/0002-openapi-generated-client.md)). Never edit generated
   code. Update the schema copy and regenerate.
