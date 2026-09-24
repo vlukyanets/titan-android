@@ -50,7 +50,7 @@ flowchart LR
 |---|---|
 | [titan](https://github.com/vlukyanets/titan) | Backend, agent runtime, CLI, product spec |
 | [titan-android](https://github.com/vlukyanets/titan-android) | Android app (this repo) |
-| titan-web | Web UI (planned) |
+| [titan-web](https://github.com/vlukyanets/titan-web) | Web UI |
 
 ## Documentation
 

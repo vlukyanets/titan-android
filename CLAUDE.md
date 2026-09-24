@@ -45,7 +45,7 @@ Full rules: [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md). In short:
   Milestone comes from the roadmap (`a1`–`a4`). Lowercase kebab-case, at most 50
   characters. Never keep a tool-generated name: if the session starts on one
   (such as `claude/…`), rename it before the first push. Cross-repo changes use
-  the same branch name, with the backend milestone, in both repositories.
+  the same branch name, with the backend milestone, in every repository.
 - Title: past-tense verb first (`Added …`, `Fixed …`), ≤ 72 characters, no
   trailing period, no `feat:`-style prefixes, no issue numbers.
 - Body: exactly one plain-language paragraph explaining what and why.
@@ -97,4 +97,4 @@ The project skeleton is milestone A1, so the commands below are the
 
 - [titan](https://github.com/vlukyanets/titan): backend, product spec, API
   contract.
-- titan-web (planned): Web UI.
+- [titan-web](https://github.com/vlukyanets/titan-web): Web UI.
