@@ -39,7 +39,7 @@ requests and reminders.
 | **Notes** | Notes list, search (semantic and keyword), editor, the "What TITAN remembers about me" memory list |
 | **Trackers** | Trackers with quick logging, streaks and simple charts |
 | **Notifications** | History of reminders, approvals and system messages |
-| **Settings** | Account, devices, per-domain autonomy overrides, nodes, notification setup, sign out |
+| **Settings** | Account, planning (working hours, daily plan time or off), devices, per-domain autonomy overrides, nodes, notification setup, sign out |
 
 Material 3, with light and dark themes and dynamic colour on Android 12+.
 
@@ -67,7 +67,8 @@ Design: [ADR 0004](../adr/0004-online-only-v1-with-offline-indicator.md).
   tailnet as the distributor. No Firebase or Google Play Services dependency
   ([ADR 0003](../adr/0003-unifiedpush-notifications.md)).
 - Notification kinds: reminder (Snooze and Done actions), approval (Approve and
-  Reject actions), daily plan summary, budget warnings.
+  Reject actions), plan (the daily plan summary, a missed time block that was
+  moved), budget (warnings and scheduled runs skipped over the budget).
 - Actions in a notification work without opening the app.
 
 ## Platform

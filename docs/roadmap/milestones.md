@@ -42,7 +42,8 @@ screens.
 - [ ] UnifiedPush registration and the ntfy setup guide.
 - [ ] Notification actions (Snooze, Done, Approve, Reject).
 - [ ] Notification history screen.
-- [ ] Settings: devices, per-domain autonomy overrides, fallback node addresses.
+- [ ] Settings: planning preferences with the daily plan time, devices,
+      per-domain autonomy overrides, fallback node addresses.
 
 Exit: a reminder and an approval can be handled from the notification shade.
 
